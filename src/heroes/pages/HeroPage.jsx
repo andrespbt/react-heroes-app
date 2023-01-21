@@ -15,6 +15,8 @@ export const HeroPage = () => {
     navigate(-1)
   }
 
+  const heroImageUrl = `./assets/heroes/${id}.jpg`;
+
   if(!hero) {
     return <Navigate to="/marvel"></Navigate>
   };
@@ -23,27 +25,27 @@ export const HeroPage = () => {
       <div className="row mt-5 animate__animated animate__fadeIn">
         <div className="col-4">
           <img 
-          src={`/assets/heroes/${id}.jpg` }
-          alt={hero.superhero}
+          src={ heroImageUrl }
+          alt={ hero.superhero }
           className="img-thumbnail animate__animated animate__bounce" 
           />
         </div>
 
         <div className="col-8 animate__animated animate__fadeInRight">
-          <h3>{hero.superhero}</h3>
+          <h3>{ hero.superhero }</h3>
           <ul className="list-group list-group flush">
-            <li className="list-group-item"><b>Alter ego: </b>{hero.alter_ego}</li>
-            <li className="list-group-item"><b>Publisher: </b>{hero.publisher}</li>
-            <li className="list-group-item"><b>First appearance: </b>{hero.first_appearance}</li>
+            <li className="list-group-item"><b>Alter ego: </b>{ hero.alter_ego }</li>
+            <li className="list-group-item"><b>Publisher: </b>{ hero.publisher }</li>
+            <li className="list-group-item"><b>First appearance: </b>{ hero.first_appearance }</li>
           </ul>
 
           <h5 className="mt-3">Characters</h5>
-          <p>{hero.characters}</p>
+          <p>{ hero.characters }</p>
 
 
           <button 
           className="btn btn-outline-primary"
-          onClick={onNavigateBack}
+          onClick={ onNavigateBack }
           >Go back</button>
         </div>
       </div>
