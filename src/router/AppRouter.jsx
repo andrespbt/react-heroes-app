@@ -1,21 +1,22 @@
-import { LoginPage } from "../auth";
-import {  createBrowserRouter, RouterProvider } from "react-router-dom";
+import {  createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { HeroesRoutes, childHeroesRoutes } from "../heroes/routes/HeroesRoutes";
-import ErrorPage from "../ui/components/ErrorPage";
+import { LoginPage } from "../auth";
+import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 const router = createBrowserRouter([
 
 	{
-	  path: "/login",
-	  element: <LoginPage/>,
-	  errorElement: <ErrorPage/>
+		index: true,
+		path: "/login",
+		element: <PublicRoute><LoginPage/></PublicRoute>,
 	},
 	{
 		path: "/",
-		element: <HeroesRoutes/>,
+		element: <PrivateRoute><HeroesRoutes/></PrivateRoute>,
 		children: childHeroesRoutes,
-		errorElement: <ErrorPage/>
-	  }
+    },
+
 
   ]);
 

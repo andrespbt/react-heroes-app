@@ -18,7 +18,6 @@ export const HeroesRoutes = () => {
 export const childHeroesRoutes =  [
 
 	{
-        index:true,
 		path: '/marvel',
 		element: <MarvelPage />,
 	},
@@ -36,6 +35,10 @@ export const childHeroesRoutes =  [
 	},
 	{
 		path: '/*',
+		element: <Navigate to={'/marvel'} />,
+	},
+	{
+		path: '/',
 		element: <Navigate to={'/marvel'} />,
 	},
 ];
