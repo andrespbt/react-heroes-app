@@ -1,10 +1,10 @@
-import {  createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import {   createHashRouter, RouterProvider } from "react-router-dom";
 import { HeroesRoutes, childHeroesRoutes } from "../heroes/routes/HeroesRoutes";
 import { LoginPage } from "../auth";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 
 	{
 		index: true,
